@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_app/animations/FadeAnimation.dart';
 import 'package:food_app/pages/HomePage.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:food_app/pages/SignUp.dart';
 
 class StarterPage extends StatefulWidget {
   @override
@@ -42,7 +43,7 @@ class _StarterPageState extends State<StarterPage> with TickerProviderStateMixin
     });
 
     _animationController.forward().then((f) => 
-      Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: HomePage()))
+      Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: SignUpPage()))
     );
   }
 
