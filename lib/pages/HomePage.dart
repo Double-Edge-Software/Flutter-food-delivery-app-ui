@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/animations/FadeAnimation.dart';
+import 'package:food_app/pages/authenticate/authenticate.dart';
+import 'package:food_app/services/auth.dart';
+import 'package:page_transition/page_transition.dart';
+
 
 class HomePage extends StatefulWidget {
   @override
@@ -7,6 +11,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +26,14 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             onPressed: () {},
             icon: Icon(Icons.shopping_basket, color: Colors.grey[800],),
+          ),
+          FlatButton.icon(
+            icon: Icon(Icons.person),
+            label: Text('logout'),
+            onPressed: () async {
+              await _auth.signOut();
+              Navigator.push(context, PageTransition(type:PageTransitionType.fade, child: Authenticate()));
+            },
           )
         ],
       ),

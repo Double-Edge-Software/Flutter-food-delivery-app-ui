@@ -46,7 +46,9 @@ class _StarterPageState extends State<StarterPage> with TickerProviderStateMixin
     });
 
     _animationController.forward().then((f) => 
-      Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: Authenticate()))
+      Navigator.push(context, PageTransition(type: PageTransitionType.fade, 
+      
+      child: Authenticate()))
     );
   }
 
