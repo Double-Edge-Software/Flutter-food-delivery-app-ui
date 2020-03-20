@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/animations/FadeAnimation.dart';
+import 'package:food_app/models/user.dart';
 import 'package:food_app/pages/HomePage.dart';
+import 'package:food_app/pages/authenticate/authenticate.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:food_app/pages/SignUp.dart';
+import 'package:provider/provider.dart';
 
 class StarterPage extends StatefulWidget {
   @override
@@ -43,12 +46,15 @@ class _StarterPageState extends State<StarterPage> with TickerProviderStateMixin
     });
 
     _animationController.forward().then((f) => 
-      Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: SignUpPage()))
+      Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: Authenticate()))
     );
   }
 
   @override
   Widget build(BuildContext context) {
+
+    final user = Provider.of<User>(context);
+    print(user);
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
